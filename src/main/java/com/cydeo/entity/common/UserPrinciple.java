@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class UserPrincipal implements UserDetails {
+public class UserPrinciple implements UserDetails {
 
     private User user;
 
-    public UserPrincipal(User user) {
+    public UserPrinciple(User user) {
         this.user = user;
     }
 
@@ -21,9 +21,7 @@ public class UserPrincipal implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
         List<GrantedAuthority> authorityList = new ArrayList<>();
-
         GrantedAuthority authority = new SimpleGrantedAuthority(this.user.getRole().getDescription());
-
         authorityList.add(authority);
 
         return authorityList;
@@ -31,13 +29,11 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-
         return this.user.getPassWord();
     }
 
     @Override
     public String getUsername() {
-
         return this.user.getUserName();
     }
 

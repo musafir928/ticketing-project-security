@@ -19,15 +19,15 @@ public class AuthSuccessHandler implements AuthenticationSuccessHandler {
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
 
-        if(roles.contains("ADMIN")) {
+        if(roles.contains("Admin")) {
             response.sendRedirect("/user/create");
         }
 
-        if(roles.contains("MANAGER")) {
+        if(roles.contains("Manager")) {
             response.sendRedirect("/project/create");
         }
 
-        if(roles.contains("EMPLOYEE")) {
+        if(roles.contains("Employee")) {
             response.sendRedirect("/task/employee");
         }
     }

@@ -22,10 +22,10 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeRequests()
-                .antMatchers("/user/**").hasAuthority("ADMIN")
-                .antMatchers("/project/**").hasAuthority("MANAGER")
-                .antMatchers("/task/employee/**").hasAuthority("EMPLOYEE")
-                .antMatchers("/task/**").hasAnyAuthority("MANAGER")
+                .antMatchers("/user/**").hasAuthority("Admin")
+                .antMatchers("/project/**").hasAuthority("Manager")
+                .antMatchers("/task/employee/**").hasAuthority("Employee")
+                .antMatchers("/task/**").hasAnyAuthority("Manager")
                 .antMatchers(
                  "/",
                  "/login",
